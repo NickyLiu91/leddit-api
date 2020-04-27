@@ -17,4 +17,4 @@ comment1 = Comment.create(content: "You all suck", account_id: marik.id, post_id
 comment2 = Comment.create(content: "Dark Magician is the best!", account_id: yugi.id, post_id: bestMonster.id)
 
 reply1 = Comment.create(content: "No you suck!", account_id: kaiba.id, comment_id: comment1.id)
-reply2 = Comment.create(content: "The Winged Dragon of Ra is!", account_id: marik.id, post_id: comment2.id)
+reply2 = Comment.create(content: "The Winged Dragon of Ra is!", account_id: marik.id, comment_id: comment2.id)
