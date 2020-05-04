@@ -47,7 +47,7 @@ class Api::V1::AccountsController < ApplicationController
   private
 
   def account_params
-    params.require(:accojunt).permit(:name, :password)
+    params.require(:account).permit(:name, :password)
   end
 
   def find_account
