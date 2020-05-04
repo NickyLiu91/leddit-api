@@ -17,11 +17,6 @@ class Api::V1::PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
-    # if @player.valid?
-    #   render json: { player: PlayerSerializer.new(@player) }, status: :created
-    # else
-    #   render json: { error: 'failed to create user' }, status: :not_acceptable
-    # end
     render json: @post
   end
 
@@ -33,16 +28,6 @@ class Api::V1::PostsController < ApplicationController
     @player = Player.find_by(id: params[:id])
     @player.update(player_params)
   end
-
-  # def card_players
-  #   @card = Card.find(params[:card_id])
-  #   @players = @card
-  # end
-  #
-  # def deck_player
-  #   @deck = Deck.find(params[:deck_id])
-  #   @player = @deck
-  # end
 
   private
 
