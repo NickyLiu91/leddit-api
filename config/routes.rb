@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     namespace :v1 do
 
       resources :accounts
+      resources :posts
+      resources :comments
+      resources :replies
 
       # resources :players do
       #   resources :cards
