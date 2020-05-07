@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       resources :accounts do
         resources :posts
       end
-
+      #
       resources :accounts do
         resources :comments
       end
@@ -18,9 +18,9 @@ Rails.application.routes.draw do
         resources :replies
       end
 
-      resources :posts
-      resources :comments
-      resources :replies
+      # resources :posts
+      # resources :comments
+      # resources :replies
 
       # resources :players do
       #   resources :cards
