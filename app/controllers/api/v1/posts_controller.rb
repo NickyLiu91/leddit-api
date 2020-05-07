@@ -3,8 +3,13 @@ class Api::V1::PostsController < ApplicationController
   before_action :find_post, only: [:show]
 
   def index
-    @posts = Post.all
-    render json: @posts
+    if params[:account_id].present? then
+      @account = Account.find(params[:account_id])
+      render json: @account.posts
+    else
+      @posts = Post.all
+      render json: @posts
+    end
   end
 
   def show
