@@ -32,7 +32,7 @@ class Api::V1::RepliesController < ApplicationController
   private
 
   def reply_params
-    params.require(:reply).permit(:content)
+    params.require(:reply).permit(:content, :account_id, :comment_id)
   end
 
   def find_reply
