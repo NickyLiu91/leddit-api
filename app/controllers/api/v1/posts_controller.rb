@@ -30,8 +30,8 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def update
-    @player = Player.find_by(id: params[:id])
-    @player.update(player_params)
+    @post = Post.find_by(id: params[:id])
+    @post.update(player_params)
   end
 
   private
