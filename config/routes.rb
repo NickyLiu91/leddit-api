@@ -18,7 +18,7 @@ Rails.application.routes.draw do
         resources :replies
       end
 
-      # resources :posts
+      resources :posts
       # resources :comments
       # resources :replies
 
