@@ -30,28 +30,30 @@ Rails.application.routes.draw do
         resources :replies
       end
 
-      # resources :posts
-      # resources :comments
-      # resources :replies
+      resources :comments do
+        resources :accounts
+      end
+      #
+      resources :comments do
+        resources :posts
+      end
 
-      # resources :players do
-      #   resources :cards
-      # end
+      resources :comments do
+        resources :replies
+      end
+
+      resources :replies do
+        resources :accounts
+      end
       #
-      # resources :players do
-      #   resources :decks
-      # end
-      #
-      # resources :cards
-      #
-      # resources :decks do
-      #   resources :cards
-      # end
-      #
-      #
-      # resources :deckcards
-      #
-      # resources :allcards
+      resources :replies do
+        resources :posts
+      end
+
+      resources :replies do
+        resources :comments
+      end
+
     end
   end
 end
