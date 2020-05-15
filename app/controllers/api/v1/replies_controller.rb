@@ -3,8 +3,8 @@ class Api::V1::RepliesController < ApplicationController
   before_action :find_reply, only: [:show]
 
   def index
-    @replys = Reply.all
-    render json: @replys
+    @replies = Reply.all
+    render json: @replies
   end
 
   def show
@@ -25,8 +25,8 @@ class Api::V1::RepliesController < ApplicationController
   end
 
   def update
-    @player = Player.find_by(id: params[:id])
-    @player.update(player_params)
+    @reply = Reply.find_by(id: params[:id])
+    @reply.update(reply_params)
   end
 
   private

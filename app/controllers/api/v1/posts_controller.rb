@@ -26,7 +26,7 @@ class Api::V1::PostsController < ApplicationController
 
   def update
     @post = Post.find_by(id: params[:id])
-    @post.update(player_params)
+    @post.update(post_params)
   end
 
   private

@@ -3,5 +3,5 @@ class ReplySerializer < ActiveModel::Serializer
 
   belongs_to :account
   belongs_to :post
-  # belongs_to :comment
+  belongs_to :comment
 end
