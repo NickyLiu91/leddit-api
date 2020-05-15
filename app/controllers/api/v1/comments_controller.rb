@@ -25,8 +25,8 @@ class Api::V1::CommentsController < ApplicationController
   end
 
   def update
-    @player = Player.find_by(id: params[:id])
-    @player.update(player_params)
+    @comment = Comment.find_by(id: params[:id])
+    @comment.update(comment_params)
   end
 
   private

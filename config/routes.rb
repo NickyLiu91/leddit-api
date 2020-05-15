@@ -18,7 +18,19 @@ Rails.application.routes.draw do
         resources :replies
       end
 
-      resources :posts
+      resources :posts do
+        resources :accounts
+      end
+      #
+      resources :posts do
+        resources :comments
+      end
+
+      resources :posts do
+        resources :replies
+      end
+
+      # resources :posts
       # resources :comments
       # resources :replies
 
