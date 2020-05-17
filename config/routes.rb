@@ -14,10 +14,6 @@ Rails.application.routes.draw do
         resources :comments
       end
 
-      resources :accounts do
-        resources :replies
-      end
-
       resources :posts do
         resources :accounts
       end
@@ -26,9 +22,6 @@ Rails.application.routes.draw do
         resources :comments
       end
 
-      resources :posts do
-        resources :replies
-      end
 
       resources :comments do
         resources :accounts
@@ -36,22 +29,6 @@ Rails.application.routes.draw do
       #
       resources :comments do
         resources :posts
-      end
-
-      resources :comments do
-        resources :replies
-      end
-
-      resources :replies do
-        resources :accounts
-      end
-      #
-      resources :replies do
-        resources :posts
-      end
-
-      resources :replies do
-        resources :comments
       end
 
     end
