@@ -15,3 +15,4 @@ bestMonster = Post.create(title: "Best Monster", content: "Blue-Eyes is the best
 
 comment1 = Comment.create(content: "You all suck", account_id: marik.id, post_id: dueling.id)
 comment2 = Comment.create(content: "Dark Magician is the best!", account_id: yugi.id, post_id: bestMonster.id)
+comment3 = Comment.create(content: "You suck more!", account_id: kaiba.id, post_id: dueling.id, parent_id: comment1.id)
