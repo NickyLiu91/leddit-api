@@ -17,11 +17,11 @@ class Api::V1::AccountsController < ApplicationController
 
   def create
     @account = Account.create(account_params)
-    # if @player.valid?
-    #   render json: { player: PlayerSerializer.new(@player) }, status: :created
-    # else
-    #   render json: { error: 'failed to create user' }, status: :not_acceptable
-    # end
+    if @account.valid?
+      render json: { account: AccountSerializer.new(@account) }, status: :created
+    else
+      render json: { error: 'failed to create user' }, status: :not_acceptable
+    end
     render json: @account
   end
 
