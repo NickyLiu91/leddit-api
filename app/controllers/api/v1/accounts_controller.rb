@@ -22,7 +22,6 @@ class Api::V1::AccountsController < ApplicationController
     else
       render json: { error: 'failed to create user' }, status: :not_acceptable
     end
-    render json: @account
   end
 
   def edit
