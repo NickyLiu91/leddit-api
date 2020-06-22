@@ -33,20 +33,10 @@ class Api::V1::AccountsController < ApplicationController
     @player.update(player_params)
   end
 
-  # def card_players
-  #   @card = Card.find(params[:card_id])
-  #   @players = @card
-  # end
-  #
-  # def deck_player
-  #   @deck = Deck.find(params[:deck_id])
-  #   @player = @deck
-  # end
-
   private
 
   def account_params
-    params.require(:account).permit(:name, :password)
+    params.permit(:name, :password)
   end
 
   def find_account
