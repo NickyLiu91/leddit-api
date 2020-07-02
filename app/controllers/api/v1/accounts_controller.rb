@@ -21,7 +21,7 @@ class Api::V1::AccountsController < ApplicationController
     if @account
       @token = encode_token(account_id: @account.id)
       render json: { account: AccountSerializer.new(@account), jwt: @token }, status: :created
-      console.log(@token)
+      # puts(@token)
     else
       render json: { error: 'failed to create user' }, status: :not_acceptable
     end
