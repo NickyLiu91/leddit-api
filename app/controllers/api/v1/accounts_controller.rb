@@ -1,6 +1,6 @@
 class Api::V1::AccountsController < ApplicationController
 
-  before_action :find_account, only: [:show]
+  # before_action :find_account, only: [:show]
   skip_before_action :authorized, only: %i[create]
 
   def index
@@ -19,7 +19,7 @@ class Api::V1::AccountsController < ApplicationController
   def create
     @account = Account.create(account_params)
     if @account
-      @token = encode_token(user_id: @user.id)
+      @token = encode_token(account_id: @account.id)
       render json: { account: AccountSerializer.new(@account), jwt: @token }, status: :created
       console.log(@token)
     else
