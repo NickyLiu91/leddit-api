@@ -2,7 +2,7 @@ class Api::V1::AuthController < ApplicationController
   skip_before_action :authorized, only: %i[create]
 
   def create
-    @account = Account.find_by(accountname: account_login_params[:accountname])
+    @account = Account.find_by(name: account_login_params[:name])
     #Account#authenticate comes from BCrypt
     if @account && @account.authenticate(account_login_params[:password])
       # encode token comes from ApplicationController
@@ -17,6 +17,6 @@ class Api::V1::AuthController < ApplicationController
 
   def account_login_params
     # params { account: {accountname: 'Chandler Bing', password: 'hi' } }
-    params.require(:account).permit(:accountname, :password)
+    params.require(:account).permit(:name, :password)
   end
 end
