@@ -24,7 +24,7 @@ class ApplicationController < ActionController::API
     end
   end
 
-  def current_user
+  def current_account
      if decoded_token
        account_id = decoded_token[0]['account_id']
        @account = Account.find_by(id: account_id)
@@ -32,7 +32,7 @@ class ApplicationController < ActionController::API
    end
 
     def logged_in?
-      !!current_user
+      !!current_account
     end
 
     def authorized
