@@ -16,24 +16,19 @@ class Api::V1::AccountsController < ApplicationController
     @account = Account.new
   end
 
+  def profile
+    render json: { account: AccountSerializer.new(current_account) }, status: :accepted
+  end
+
   def create
     @account = Account.create(account_params)
-    if @account
+    if @account.valid?
       @token = encode_token(account_id: @account.id)
       render json: { account: AccountSerializer.new(@account), jwt: @token }, status: :created
       # puts(@token)
     else
       render json: { error: 'failed to create user' }, status: :not_acceptable
     end
-  end
-
-  def edit
-    @account = Account.find_by(id: params[:id])
-  end
-
-  def update
-    @player = Player.find_by(id: params[:id])
-    @player.update(player_params)
   end
 
   private
