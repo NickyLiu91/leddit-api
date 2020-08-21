@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-yugi = Account.create(name: "Yugi", password: "aaa")
-kaiba = Account.create(name: "Kaiba", password: "bbb")
-marik = Account.create(name: "Marik", password: "ccc")
+yugi = Account.create(name: "Yugi", password_digest: "aaa")
+kaiba = Account.create(name: "Kaiba", password_digest: "bbb")
+marik = Account.create(name: "Marik", password_digest: "ccc")
 
 dueling = Post.create(title: "Dueling", content: "Dueling is awesome!", account_id: yugi.id)
 bestMonster = Post.create(title: "Best Monster", content: "Blue-Eyes is the best monster!!", account_id: kaiba.id)

@@ -6,6 +6,11 @@ Rails.application.routes.draw do
 
       # resources :accounts
 
+      resources :accounts, only: %i[create]
+      post '/login', to: 'auth#create'
+      post '/???', to: 'auth#create'
+      get '/profile', to: 'account#profile'
+
       resources :accounts do
         resources :posts
       end
