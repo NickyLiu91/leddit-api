@@ -1,5 +1,5 @@
 class AccountSerializer < ActiveModel::Serializer
-  attributes :id, :name, :password_digest
+  attributes :id, :name, :password
 
   has_many :posts
   has_many :comments
