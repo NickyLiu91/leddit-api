@@ -4,7 +4,7 @@ class Api::V1::AuthController < ApplicationController
   def create
     @account = Account.find_by(name: account_login_params[:name])
     #Account#authenticate comes from BCrypt
-    if @account && @account.authenticate(account_login_params[:password])
+    if @account && @account.authenticate(account_login_params[:password_digest])
       # encode token comes from ApplicationController
       token = encode_token({ account_id: @account.id })
       render json: { account: AccountSerializer.new(@account), jwt: token }, status: :accepted
@@ -17,6 +17,6 @@ class Api::V1::AuthController < ApplicationController
 
   def account_login_params
     # params { account: {accountname: 'Chandler Bing', password: 'hi' } }
-    params.permit(:name, :password_digest, :auth)
+    params.permit(:name, :password_digest)
   end
 end
