@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::API
-  before_action :authorized
+  before_action :authorized, except: [:index]
+
+  def index
+      @posts = Post.all
+      @comments = Comment.all
+  end
 
   def encode_token(payload)
     # payload => { beef: 'steak' }
