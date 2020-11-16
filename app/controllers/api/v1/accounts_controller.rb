@@ -1,6 +1,4 @@
 class Api::V1::AccountsController < ApplicationController
-
-  # before_action :find_account, only: [:show]
   skip_before_action :authorized, only: %i[create]
 
   def index

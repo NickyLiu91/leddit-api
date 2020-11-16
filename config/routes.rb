@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
       resources :accounts, only: %i[create]
       post '/login', to: 'auth#create'
-      get '/profile', to: 'account#profile'
+      get '/profile', to: 'accounts#profile'
 
       resources :accounts do
         resources :posts
