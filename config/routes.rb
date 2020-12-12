@@ -10,30 +10,34 @@ Rails.application.routes.draw do
       post '/login', to: 'auth#create'
       get '/profile', to: 'accounts#profile'
 
-      resources :accounts do
-        resources :posts
-      end
-      #
-      resources :accounts do
-        resources :comments
-      end
+      resources :accounts
+      resources :posts
+      resources :comments
 
-      resources :posts do
-        resources :accounts
-      end
+      # resources :accounts do
+      #   resources :posts
+      # end
       #
-      resources :posts do
-        resources :comments
-      end
-
-
-      resources :comments do
-        resources :accounts
-      end
+      # resources :accounts do
+      #   resources :comments
+      # end
       #
-      resources :comments do
-        resources :posts
-      end
+      # resources :posts do
+      #   resources :accounts
+      # end
+      #
+      # resources :posts do
+      #   resources :comments
+      # end
+      #
+      #
+      # resources :comments do
+      #   resources :accounts
+      # end
+      #
+      # resources :comments do
+      #   resources :posts
+      # end
 
     end
   end
