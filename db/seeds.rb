@@ -14,7 +14,10 @@ dueling = Post.create(title: "Dueling", content: "Dueling is awesome!", account_
 bestMonster = Post.create(title: "Best Monster", content: "Blue-Eyes is the best monster!!", account_id: kaiba.id)
 
 comment1 = Comment.create(content: "You all suck", account_id: marik.id, post_id: dueling.id)
+
 comment2 = Comment.create(content: "Dark Magician is the best!", account_id: yugi.id, post_id: bestMonster.id)
+
 comment3 = Comment.create(content: "You suck more!", account_id: kaiba.id, post_id: dueling.id, parent_id: comment1.id)
 comment4 = Comment.create(content: "You suck more 2!", account_id: marik.id, post_id: dueling.id, parent_id: comment1.id)
 comment5 = Comment.create(content: "YOU WANNA DUEL?!", account_id: kaiba.id, post_id: dueling.id, parent_id: comment4.id)
+comment6 = Comment.create(content: "Hi guys!", account_id: yugi.id, post_id: dueling.id)

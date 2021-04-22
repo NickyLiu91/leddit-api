@@ -27,6 +27,7 @@ class Api::V1::PostsController < ApplicationController
   def update
     @post = Post.find_by(id: params[:id])
     @post.update(post_params)
+    render json: @post
   end
 
   private

@@ -27,6 +27,7 @@ class Api::V1::CommentsController < ApplicationController
   def update
     @comment = Comment.find_by(id: params[:id])
     @comment.update(comment_params)
+    render json: @comment
   end
 
   private
