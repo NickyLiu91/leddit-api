@@ -1,5 +1,15 @@
 class Api::V1::AccountsController < ApplicationController
-  skip_before_action :authorized, only: %i[create]
+  skip_before_action :authorized, only: [:create, :index, :show]
+  before_action :find_account, only: [:show]
+
+  def index
+    @accounts= Account.all
+    render json: @accounts
+  end
+
+  def show
+    render json: @account
+  end
 
   def profile
     render json: { account: AccountSerializer.new(current_account) }, status: :accepted
@@ -20,6 +30,10 @@ class Api::V1::AccountsController < ApplicationController
 
   def account_params
     params.permit(:name, :password)
+  end
+
+  def find_account
+    @account = Account.find(params[:id])
   end
 
 
