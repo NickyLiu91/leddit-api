@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_04_26_030736) do
     t.string "content"
     t.integer "account_id"
     t.integer "post_id"
+    t.binary "deleted"
     t.bigint "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
