@@ -5,6 +5,7 @@ class CreateComments < ActiveRecord::Migration[5.2]
       t.integer :account_id
       t.integer :post_id
       t.boolean :deleted
+      t.boolean :edited
       t.references :parent, index: true
 
       t.timestamps
