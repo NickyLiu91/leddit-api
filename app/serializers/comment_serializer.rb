@@ -1,5 +1,5 @@
 class CommentSerializer < ActiveModel::Serializer
-  attributes :id, :content, :account, :parent, :children, :deleted, :created_at, :updated_at
+  attributes :id, :content, :account, :parent, :children, :deleted, :edited, :created_at, :updated_at
 
   belongs_to :account
   belongs_to :post
