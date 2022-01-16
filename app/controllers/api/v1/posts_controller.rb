@@ -33,7 +33,7 @@ class Api::V1::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :account_id)
+    params.require(:post).permit(:title, :content, :account_id, :deleted, :edited)
   end
 
   def find_post
