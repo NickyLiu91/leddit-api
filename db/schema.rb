@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_26_030736) do
+ActiveRecord::Schema.define(version: 2022_02_15_215748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,12 @@ ActiveRecord::Schema.define(version: 2020_04_26_030736) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comment_votes", force: :cascade do |t|
+    t.integer "account_id"
+    t.integer "comment_id"
+    t.boolean "like"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -34,12 +40,16 @@ ActiveRecord::Schema.define(version: 2020_04_26_030736) do
     t.index ["parent_id"], name: "index_comments_on_parent_id"
   end
 
+  create_table "post_votes", force: :cascade do |t|
+    t.integer "account_id"
+    t.integer "post_id"
+    t.boolean "like"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "content"
     t.integer "account_id"
-    t.boolean "deleted"
-    t.boolean "edited"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
