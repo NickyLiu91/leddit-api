@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 2022_02_15_215748) do
     t.string "title"
     t.string "content"
     t.integer "account_id"
+    t.boolean "deleted"
+    t.boolean "edited"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
