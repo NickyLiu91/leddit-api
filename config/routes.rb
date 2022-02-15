@@ -42,6 +42,14 @@ Rails.application.routes.draw do
         resources :comments
       end
 
+      resources :post_votes do
+        resources :post_votes
+      end
+
+      resources :comment_votes do
+        resources :comment_votes
+      end
+
     end
   end
 end
