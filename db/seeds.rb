@@ -21,3 +21,9 @@ comment3 = Comment.create(content: "You suck more!", account_id: kaiba.id, post_
 comment4 = Comment.create(content: "You suck more 2!", account_id: marik.id, post_id: dueling.id, parent_id: comment1.id, edited: false, deleted: false)
 comment5 = Comment.create(content: "YOU WANNA DUEL?!", account_id: kaiba.id, post_id: dueling.id, parent_id: comment4.id, edited: false, deleted: false)
 comment6 = Comment.create(content: "Hi guys!", account_id: yugi.id, post_id: dueling.id, edited: false, deleted: false)
+
+postVote1 = PostVote.create(account_id: yugi.id, post_id: dueling.id, like: true)
+postVote2 = PostVote.create(account_id: kaiba.id, post_id: best.id, like: false)
+
+commentVote1 = CommentVote.create(account_id: kaiba.id, comment_id: comment1.id, like: true)
+commentVote2 = CommentVote.create(account_id: marik.id, comment_id: comment2.id, like: false)

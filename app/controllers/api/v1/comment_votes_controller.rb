@@ -3,7 +3,7 @@ class CommentVotesController < ApplicationController
   before_action :find_comment, only: [:show]
 
   def index
-    @commentVotes = CommentVotes.all
+    @commentVotes = CommentVote.all
     render json: @commentVotes
   end
 
@@ -12,27 +12,27 @@ class CommentVotesController < ApplicationController
   end
 
   def new
-    @commentVotes = CommentVotes.new
+    @commentVote = CommentVote.new
   end
 
   def create
-    @commentVotes = CommentVotes.create(commentVotes_params)
-    render json: @commentVotes
+    @commentVote = CommentVote.create(commentVote_params)
+    render json: @commentVote
   end
 
   def edit
-    @commentVotes = CommentVotes.find_by(id: params[:id])
+    @commentVote = CommentVote.find_by(id: params[:id])
   end
 
   def update
-    @commentVotes = CommentVotes.find_by(id: params[:id])
-    @commentVotes.update(commentVotes_params)
-    render json: @commentVotes
+    @commentVote = CommentVote.find_by(id: params[:id])
+    @commentVote.update(commentVote_params)
+    render json: @commentVote
   end
 
   private
 
-  def commentVotes_params
+  def commentVote_params
     params.require(:comment).permit(:account_id, :comment_id, :like)
   end
 

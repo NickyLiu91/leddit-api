@@ -3,7 +3,7 @@ class PostVotesController < ApplicationController
   before_action :find_post, only: [:show]
 
   def index
-    @postVotes = PostVotes.all
+    @postVotes = PostVote.all
     render json: @postVotes
   end
 
@@ -12,27 +12,27 @@ class PostVotesController < ApplicationController
   end
 
   def new
-    @postVotes = PostVotes.new
+    @postVote = PostVote.new
   end
 
   def create
-    @postVotes = PostVotes.create(postVotes_params)
-    render json: @postVotes
+    @postVote = PostVote.create(postVote_params)
+    render json: @postVote
   end
 
   def edit
-    @postVotes = PostVotes.find_by(id: params[:id])
+    @postVote = PostVote.find_by(id: params[:id])
   end
 
   def update
-    @postVotes = PostVotes.find_by(id: params[:id])
-    @postVotes.update(postVotes_params)
-    render json: @postVotes
+    @postVote = PostVote.find_by(id: params[:id])
+    @postVote.update(postVote_params)
+    render json: @postVote
   end
 
   private
 
-  def postVotes_params
+  def postVote_params
     params.require(:post).permit(:account_id, :post_id, :like)
   end
 
