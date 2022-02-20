@@ -1,6 +1,6 @@
-class CommentvotesController < ApplicationController
+class Api::V1::CommentvotesController < ApplicationController
   skip_before_action :authorized, only: [:index, :show]
-  before_action :find_comment, only: [:show]
+  before_action :find_commentvote, only: [:show]
 
   def index
     @commentvotes = Commentvote.all
@@ -33,10 +33,10 @@ class CommentvotesController < ApplicationController
   private
 
   def commentvote_params
-    params.require(:comment).permit(:account_id, :comment_id, :like)
+    params.require(:commentvote).permit(:account_id, :comment_id, :like)
   end
 
-  def find_comment
+  def find_commentvote
     @commentvote = Commentvote.find(params[:id])
   end
 end

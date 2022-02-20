@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
   belongs_to :account
   has_many :comments
-  has_many :postVotes
+  has_many :postvotes
 end

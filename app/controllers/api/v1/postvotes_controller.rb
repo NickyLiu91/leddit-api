@@ -1,6 +1,6 @@
-class PostvotesController < ApplicationController
+class Api::V1::PostvotesController < ApplicationController
   skip_before_action :authorized, only: [:index, :show]
-  before_action :find_post, only: [:show]
+  before_action :find_postvote, only: [:show]
 
   def index
     @postvotes = Postvote.all
@@ -33,10 +33,10 @@ class PostvotesController < ApplicationController
   private
 
   def postvote_params
-    params.require(:post).permit(:account_id, :post_id, :like)
+    params.require(:postvote).permit(:account_id, :post_id, :like)
   end
 
-  def find_post
+  def find_postvote
     @postvote = Postvote.find(params[:id])
   end
 

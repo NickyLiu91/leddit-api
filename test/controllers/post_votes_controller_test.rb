@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PostVotesControllerTest < ActionDispatch::IntegrationTest
+class PostvotesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

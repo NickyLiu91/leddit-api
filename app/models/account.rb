@@ -4,6 +4,6 @@ class Account < ApplicationRecord
 
   has_many :posts
   has_many :comments
-  has_many :postVotes
-  has_many :commentVotes
+  has_many :postvotes
+  has_many :commentvotes
 end
