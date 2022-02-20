@@ -1,4 +1,4 @@
-class PostVoteSerializer < ActiveModel::Serializer
+class PostvoteSerializer < ActiveModel::Serializer
   attributes :account, :post, :like
 
   belongs_to :account

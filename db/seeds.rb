@@ -24,6 +24,6 @@ comment6 = Comment.create(content: "Hi guys!", account_id: yugi.id, post_id: due
 
 postVote1 = PostVote.create(account_id: yugi.id, post_id: dueling.id, like: true)
 postVote2 = PostVote.create(account_id: kaiba.id, post_id: best.id, like: false)
-
-commentVote1 = CommentVote.create(account_id: kaiba.id, comment_id: comment1.id, like: true)
-commentVote2 = CommentVote.create(account_id: marik.id, comment_id: comment2.id, like: false)
+#
+# commentVote1 = CommentVote.create(account_id: kaiba.id, comment_id: comment1.id, like: true)
+# commentVote2 = CommentVote.create(account_id: marik.id, comment_id: comment2.id, like: false)

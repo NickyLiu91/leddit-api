@@ -1,0 +1,43 @@
+class PostvotesController < ApplicationController
+  skip_before_action :authorized, only: [:index, :show]
+  before_action :find_post, only: [:show]
+
+  def index
+    @postvotes = Postvote.all
+    render json: @postvotes
+  end
+
+  def show
+    render json: @postvote
+  end
+
+  def new
+    @postvote = Postvote.new
+  end
+
+  def create
+    @postvote = Postvote.create(postvote_params)
+    render json: @postvote
+  end
+
+  def edit
+    @postvote = Postvote.find_by(id: params[:id])
+  end
+
+  def update
+    @postvote = Postvote.find_by(id: params[:id])
+    @postvote.update(postvote_params)
+    render json: @postvote
+  end
+
+  private
+
+  def postvote_params
+    params.require(:post).permit(:account_id, :post_id, :like)
+  end
+
+  def find_post
+    @postvote = Postvote.find(params[:id])
+  end
+
+end

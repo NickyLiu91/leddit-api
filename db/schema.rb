@@ -22,12 +22,6 @@ ActiveRecord::Schema.define(version: 2022_02_15_215748) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "comment_votes", force: :cascade do |t|
-    t.integer "account_id"
-    t.integer "comment_id"
-    t.boolean "like"
-  end
-
   create_table "comments", force: :cascade do |t|
     t.string "content"
     t.integer "account_id"
@@ -40,9 +34,9 @@ ActiveRecord::Schema.define(version: 2022_02_15_215748) do
     t.index ["parent_id"], name: "index_comments_on_parent_id"
   end
 
-  create_table "post_votes", force: :cascade do |t|
+  create_table "commentvotes", force: :cascade do |t|
     t.integer "account_id"
-    t.integer "post_id"
+    t.integer "comment_id"
     t.boolean "like"
   end
 
@@ -54,6 +48,12 @@ ActiveRecord::Schema.define(version: 2022_02_15_215748) do
     t.boolean "edited"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "postvotes", force: :cascade do |t|
+    t.integer "account_id"
+    t.integer "post_id"
+    t.boolean "like"
   end
 
 end

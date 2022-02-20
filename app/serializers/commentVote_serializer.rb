@@ -1,4 +1,4 @@
-class CommentVoteSerializer < ActiveModel::Serializer
+class CommentvoteSerializer < ActiveModel::Serializer
   attributes :account, :comment, :like
 
   belongs_to :account
