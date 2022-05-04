@@ -1,6 +1,6 @@
 class Api::V1::PostvotesController < ApplicationController
   skip_before_action :authorized, only: [:index, :show]
-  before_action :find_postvote, only: [:show]
+  before_action :find_postvote, only: [:show, :destroy]
 
   def index
     @postvotes = Postvote.all
@@ -28,6 +28,12 @@ class Api::V1::PostvotesController < ApplicationController
     @postvote = Postvote.find_by(id: params[:id])
     @postvote.update(postvote_params)
     render json: @postvote
+  end
+
+  def destroy
+    @postvote.destroy
+    @postvotes = Postvote.all
+    render json: @postvotes
   end
 
   private
